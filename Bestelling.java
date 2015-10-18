@@ -1,30 +1,54 @@
-@@ -0,0 +1,29 @@
-// Hoofdstuk 10 opdracht 2
- 
-import java.util.*;
+package com.HS10;
 
-class BestellingApp
-{ 
- public static void main (String args[])
-  
- {
-    double totaal = 0;
-    Map<String, Double> artikelen = new HashMap<String, Double>();
- 
-	artikelen.put("Stuiterbal", 1.5d); 
-    artikelen.put("Bromtol", 3.0d);
-    artikelen.put("Pop", 2.0d);
-	artikelen.put("Puzzel", 2.5d);
-  
-	totaal+=prijs(artikelen.get(args[0]), Double.parseDouble(args[1]));
-       
-    System.out.println(totaal);
-  }
 
-  static double prijs(Object o, Double aantal)
-  {
-   	return (Double) o * aantal;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-  }
+public class Bestelling {
 
- }
+    private Map<String, Integer> bestellingLijst;
+    private Map<String, Double> artikelenLijst;
+
+    /**
+     * De lijst opgemaakt in de main wordt meegegeven. En een Hashmap wordt geïnitialiseerd.
+     *
+     * @param artikelenLijst
+     */
+    public Bestelling(Map artikelenLijst) {
+        this.artikelenLijst = artikelenLijst;
+
+        this.bestellingLijst = new HashMap<>();
+    }
+
+    /**
+     * Het toevoegen van een artikel aan de bestellinglijst
+     *
+     * @param artikelNaam
+     * @param aantal
+     */
+    public void voegToe(String artikelNaam, Integer aantal){
+        this.bestellingLijst.put(artikelNaam, aantal);
+    }
+
+    /**
+     * Iteratie door bestellinglijst waar de prijs van het losse artikel wordt opgehaald op basis van de 'key'
+     * dat in de bestellinglijst staat (wat dus dezelfde naam is). Vervolgens wordt het vermenigvuldigd met het aantal (value).
+     *
+     * @return double totaal
+     */
+    public double totaalBedrag() {
+        Iterator it = this.bestellingLijst.entrySet().iterator();
+
+        Double totaal = 0.0;
+        while (it.hasNext()) {
+            Map.Entry artikel = (Map.Entry)it.next();
+
+            Double prijsPerArtikel = this.artikelenLijst.get(artikel.getKey());
+            totaal+= prijsPerArtikel * (Integer)artikel.getValue();
+
+        }
+
+       return totaal;
+    }
+}

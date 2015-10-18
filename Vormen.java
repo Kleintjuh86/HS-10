@@ -1,4 +1,5 @@
-@@ -0,0 +1,69 @@
+package com.HS10;
+//@@ -0,0 +1,69 @@
 //Hoofdstuk 10 opdracht 3 SUBMAP VORM
 
 import java.util.SortedSet;
