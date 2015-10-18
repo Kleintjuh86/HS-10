@@ -1,0 +1,37 @@
+@@ -0,0 +1,37 @@
+// Hoofdstuk 10 opdracht 2
+ 
+import java.util.*;
+
+class MaandenApp { 
+ public static void main (String args[]) {
+	 
+    Map<String, Integer> maanden = new HashMap<String, Integer>();
+ 
+	maanden.put("januari", 31); 
+	maanden.put("februari", 28); 
+	maanden.put("maart", 31); 
+	maanden.put("april", 30); 
+	maanden.put("mei", 31); 
+	maanden.put("juni", 30); 
+	maanden.put("juli", 31); 
+	maanden.put("augustus", 31); 
+	maanden.put("september", 30); 	
+	maanden.put("oktober", 31); 
+	maanden.put("november", 30); 
+	maanden.put("december", 31); 
+	
+	toonTotaal(maanden.values());
+ }	
+ 
+  public static <T extends Number> void toonTotaal(Collection<T> c)
+  {
+    int totaal=0;
+    Iterator<T> i = c.iterator();
+    while(i.hasNext())
+    {
+      totaal+=i.next().floatValue();
+    }
+      System.out.println(totaal);
+  }
+}
