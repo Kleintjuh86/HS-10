@@ -22,7 +22,8 @@ public class Bestelling {
     }
 
     /**
-     * Het toevoegen van een artikel aan de bestellinglijst
+     * Het toevoegen van een artikel aan de bestellinglijst. Eigenlijk zou hier een check moeten komen die
+     * controlleert of de naam wel voor komt in artikelenLijst.
      *
      * @param artikelNaam
      * @param aantal
@@ -33,7 +34,11 @@ public class Bestelling {
 
     /**
      * Iteratie door bestellinglijst waar de prijs van het losse artikel wordt opgehaald op basis van de 'key'
-     * dat in de bestellinglijst staat (wat dus dezelfde naam is). Vervolgens wordt het vermenigvuldigd met het aantal (value).
+     * dat in de bestellinglijst staat (wat dus dezelfde naam is). Vervolgens wordt het vermenigvuldigd met het
+     * aantal (value).
+     * !!harde koppeling: Als de naam (key van je lijst 'artikelen' in main) niet overeen komt met de artikelNaam (key
+     * van de lijst 'bestelling' in main) dan error boem pats paniek!! Er zou een check moeten komen in de methode
+     * 'voegToe()' idealiter.
      *
      * @return double totaal
      */
